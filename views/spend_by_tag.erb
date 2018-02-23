@@ -1,0 +1,22 @@
+<h1> Total spend on <%= @tag.name() %>: </h1>
+<h1 class="total_spend_by_tag"> <%= @total_spend_by_tag %> </h1>
+
+<h3> Transactions </h3>
+
+<table>
+  <tr>
+    <th>Merchant</th>
+    <th>Spend</th>
+  </tr>
+  <% @transactions_by_tag.each() do |transaction| %>
+  <tr>
+    <td> <%= transaction.merchant_name() %></td>
+    <td><%= transaction.amount() %></td>
+   </tr>
+  <% end %>
+   <tr>
+     <td></td>
+     <td><b><%= @total_spend_by_tag %></b></td>
+   </tr>
+
+</table>
