@@ -8,9 +8,9 @@ Transaction.delete_all()
 Merchant.delete_all()
 Tag.delete_all()
 
-tag1 = Tag.new({'name' => 'groceries'})
-tag2 = Tag.new({'name' => 'clothing'})
-tag3 = Tag.new({'name' => 'entertainment'})
+tag1 = Tag.new({'name' => 'Groceries'})
+tag2 = Tag.new({'name' => 'Clothing'})
+tag3 = Tag.new({'name' => 'Entertainment'})
 
 tag1.save()
 tag2.save()

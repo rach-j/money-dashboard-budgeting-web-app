@@ -16,3 +16,9 @@ get '/bonzabudgeting/spendbytag/:id' do
   @total_spend_by_tag = @tag.total_spend()
   erb(:spend_by_tag)
 end
+
+get '/bonzabudgeting/spendbytag' do
+  @tags = Tag.all()
+  @total_spend = Transaction.total_spend()
+  erb(:spend_breakdown_tag)
+end

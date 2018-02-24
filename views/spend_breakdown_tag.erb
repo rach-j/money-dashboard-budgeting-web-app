@@ -1,0 +1,27 @@
+<h1> Total spend to date: </h1>
+<h1 class="total_spend"> <%= @total_spend %> </h1>
+
+<h3> Split by tag </h3>
+
+<table>
+  <tr>
+    <th>Tag</th>
+    <th>Spend</th>
+  </tr>
+  <% @tags.each() do |tag| %>
+  <tr>
+    <td><%= tag.name() %></td>
+    <td><%= tag.total_spend() %></td>
+    <td>
+      <form method="get" action="/bonzabudgeting/spendbytag/<%= tag.id() %>">
+      <input type="submit" value = "View transactions"/>
+      </form>
+    </td>
+   </tr>
+  <% end %>
+   <tr>
+     <td></td>
+     <td><b><%= @total_spend %></b></td>
+   </tr>
+
+</table>

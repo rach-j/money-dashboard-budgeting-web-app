@@ -1,5 +1,9 @@
 <h1> Total spend to date: </h1>
 <h1 class="total_spend"> <%= @total_spend %> </h1>
+<div class="button_fund_breakdown">
+  <form method="get" action="/bonzabudgeting/spendbytag">
+  <input type="submit" value = "View breakdown by tag"/>
+  </form> </div>
 
 <h3> Transactions </h3>
 
@@ -11,12 +15,8 @@
   </tr>
   <% @transactions.each() do |transaction| %>
   <tr>
-    <td> <%= transaction.merchant_name() %></td>
-    <td>
-      <a href= '/bonzabudgeting/spendbytag/<%= transaction.tag_id %>'>
-        <%= transaction.tag_name() %>
-      </a>
-    </td>
+    <td><%= transaction.merchant_name() %></td>
+    <td><%= transaction.tag_name() %></td>
     <td><%= transaction.amount() %></td>
    </tr>
   <% end %>
