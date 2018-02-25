@@ -1,0 +1,74 @@
+nav {
+  background-color: #28587B;
+  height: 15vh;
+  display: flex;
+}
+
+.logo {
+  font-size: 6vh;
+  color: white;
+  padding: 3vh 30vh;
+  font-family: 'Lobster', cursive;
+  flex-grow: 30;
+}
+
+.nav_button {
+  border: solid;
+  border-color: white;
+  width: 10vh;
+  height: 4vh;
+  border-radius: 2vh;
+  margin: 5vh 1vh;
+  text-align: center;
+  align-self: center;
+  background-color: #9FB4C7;
+  flex-grow: 1;
+}
+
+body {
+  background-color: #EEEEFF;
+  font-family: 'Nanum Gothic', sans-serif;
+}
+
+h1 {
+margin-left: 5vh;
+display: inline-block;
+}
+
+.total_spend {
+  display: inline-block;
+  font-size: 10vh;
+  padding-right: 5vh;
+}
+
+.total_spend_by_tag {
+  display: inline-block;
+  font-size: 10vh;
+  padding-right: 5vh;
+}
+
+.button_fund_breakdown {
+  display: inline-block;
+}
+
+h3 {
+  margin-left: 30%;
+  font-size: 3.5vh;
+}
+
+table {
+  margin-left: 30%;
+  font-size: 2.8vh;
+}
+
+th {
+  border-bottom-style: solid;
+}
+
+td {
+  border-bottom-style: dotted;
+}
+
+.table_end {
+  border-bottom-style: none;
+}
