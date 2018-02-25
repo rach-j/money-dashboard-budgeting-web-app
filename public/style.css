@@ -2,27 +2,25 @@ nav {
   background-color: #28587B;
   height: 15vh;
   display: flex;
+  justify-content: space-between;
 }
 
 .logo {
   font-size: 6vh;
   color: white;
-  padding: 3vh 30vh;
   font-family: 'Lobster', cursive;
-  flex-grow: 30;
+  align-self: center;
 }
 
 .nav_button {
   border: solid;
   border-color: white;
-  width: 10vh;
-  height: 4vh;
-  border-radius: 2vh;
+  width: 20vh;
   margin: 5vh 1vh;
   text-align: center;
   align-self: center;
+  border-radius: 2vh;
   background-color: #9FB4C7;
-  flex-grow: 1;
 }
 
 body {
@@ -71,4 +69,18 @@ td {
 
 .table_end {
   border-bottom-style: none;
+}
+
+.create_message {
+  position: absolute;
+  width:100%;
+  text-align: center;
+  top: 30%;
+}
+
+.link_to_home {
+  position: absolute;
+  width:100%;
+  text-align: center;
+  top: 40%;
 }

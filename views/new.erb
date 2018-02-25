@@ -1,0 +1,22 @@
+<form action="/bonzabudgeting" method="post">
+
+  <label for="spend">Enter amount spent:</label>
+  <input type="number" step="0.01" min="0" name="amount" id="spend"/>
+
+  <label for="merchant-select">Select Merchant: </label>
+  <select name="merchant_id" id="merchant-select">
+    <% @merchants.each do |merchant| %>
+    <option value=<%= merchant.id() %>><%= merchant.name() %></option>
+    <% end %>
+  </select>
+
+  <label for="tag-select">Select Tag: </label>
+  <select name="tag_id" id="tag-select">
+    <% @tags.each do |tag| %>
+    <option value=<%= tag.id() %>><%= tag.name() %></option>
+    <% end %>
+  </select>
+
+  <input type="submit" value="Add transaction"/>
+
+</form>

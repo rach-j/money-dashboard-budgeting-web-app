@@ -22,3 +22,14 @@ get '/bonzabudgeting/spendbytag' do
   @total_spend = '%.2f' % Transaction.total_spend()
   erb(:spend_breakdown_tag)
 end
+
+get '/bonzabudgeting/new' do
+  @merchants = Merchant.all()
+  @tags = Tag.all()
+  erb(:new)
+end
+
+post '/bonzabudgeting' do
+  Transaction.new(params).save()
+  erb(:create)
+end
