@@ -1,8 +1,21 @@
+/* * {
+  margin: 0;
+  padding: 0;
+} */
+
 nav {
   background-color: #28587B;
   height: 15vh;
   display: flex;
   justify-content: space-between;
+  position: fixed;
+  width: 99%;
+  z-index: 2;
+}
+
+.contents {
+  position: relative;
+  top: 15vh;
 }
 
 .logo {
@@ -74,22 +87,24 @@ td {
 }
 
 .create_message {
-  position: absolute;
+  position: relative;
   width:100%;
   text-align: center;
-  top: 30%;
+  top: 10vh;
 }
 
 .link_to_home {
-  position: absolute;
+  position: relative;
   width:100%;
   text-align: center;
-  top: 40%;
+  top: 12vh;
 }
 
 .new_form {
+  position: relative;
+  top: 5vh;
   background-color: #9FB4C7;
-  margin: 5vh auto;
+  margin: 0vh auto;
   width: 70vh;
   height: 45vh;
   display: flex;
