@@ -17,7 +17,7 @@
   <tr>
     <td><%= transaction.merchant_name() %></td>
     <td><%= transaction.tag_name() %></td>
-    <td><%= transaction.amount() %></td>
+    <td><%= '%.2f' % transaction.amount() %></td>
    </tr>
   <% end %>
    <tr>

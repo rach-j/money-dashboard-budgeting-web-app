@@ -11,7 +11,7 @@
   <% @tags.each() do |tag| %>
   <tr>
     <td><%= tag.name() %></td>
-    <td><%= tag.total_spend() %></td>
+    <td><%= '%.2f' % tag.total_spend() %></td>
     <td class="table_end">
       <form method="get" action="/bonzabudgeting/spendbytag/<%= tag.id() %>">
       <input type="submit" value = "View transactions"/>
