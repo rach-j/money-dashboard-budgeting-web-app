@@ -3,10 +3,12 @@ require('sinatra/contrib/all')
 require_relative('models/merchant.rb')
 require_relative('models/tag.rb')
 require_relative('models/transaction.rb')
+require_relative('models/other_functions.rb')
 
 get '/bonzabudgeting' do
   @transactions = Transaction.all()
   @total_spend = '%.2f' % Transaction.total_spend()
+  @budget_message = budget_compare(100,Transaction.total_spend())
   erb(:index)
 end
 
