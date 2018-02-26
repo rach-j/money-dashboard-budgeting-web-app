@@ -16,9 +16,12 @@
         <td><%= merchant.name() %></td>
         <td><%= "£#{'%.2f' % merchant.total_spend()}" %></td>
         <td class="table_end">
-          <form method="get" action="/bonzabudgeting/spendbymerchant/<%= merchant.id() %>">
+          <div class="button">
+            <a href="/bonzabudgeting/spendbymerchant/<%= merchant.id() %>"> View transactions </a>
+          </div>
+          <!-- <form method="get" action="/bonzabudgeting/spendbymerchant/<%= merchant.id() %>">
             <input type="submit" value = "View transactions"/>
-          </form>
+          </form> -->
         </td>
       </tr>
       <% end %>

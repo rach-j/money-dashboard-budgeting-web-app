@@ -1,57 +1,65 @@
 <div class="contents">
   <h1> My budget: </h1>
   <h1 class="budget"> <%= "£#{@budget_value}" %></h1>
-
-  <div class="button_update_budget">
-    <form method="get" action="/bonzabudgeting/budget/<%= @budget.id() %>/budgetupdate">
-      <input type="submit" value = "Update budget"/>
-    </form>
-  </div>
+    <div class="button">
+      <a href="/bonzabudgeting/budget/<%= @budget.id() %>/budgetupdate"> Update budget </a>
+    </div>
 
   <h1> Total spend to date: </h1>
   <h1 class="total_spend"> <%= "£#{@total_spend}" %> </h1>
-  <div class="button_fund_breakdown">
-    <form method="get" action="/bonzabudgeting/spendbytag">
-      <input type="submit" value = "View breakdown by tag"/>
-    </form>
-    <form method="get" action="/bonzabudgeting/spendbymerchant">
-      <input type="submit" value = "View breakdown by merchant"/>
-    </form>
-  </div>
-  <div class="budget_message">
-    <h2> <%= @budget_message %> </h2>
-  </div>
-  <div class="table_group">
-    <h3> Transactions </h3>
-
-      <table>
-        <tr>
-          <th>Merchant</th>
-          <th>Tag</th>
-          <th>Spend</th>
-        </tr>
-        <% @transactions.each() do |transaction| %>
-        <tr>
-          <td><%= transaction.merchant_name() %></td>
-          <td><%= transaction.tag_name() %></td>
-          <td><%= "£#{'%.2f' % transaction.amount()}" %></td>
-          <td class="table_end">
-            <form method="get" action="/bonzabudgeting/<%= transaction.id() %>/edit">
-              <input type="submit" value = "Edit"/>
-            </form>
-          </td>
-          <td class="table_end">
-            <form method="post" action="/bonzabudgeting/<%= transaction.id() %>/delete">
-              <input type="submit" value = "Delete"/>
-            </form>
-          </td>
-        </tr>
-        <% end %>
-        <tr>
-          <td class="table_end"></td>
-          <td class="table_end"></td>
-          <td class="table_end"><b><%= "£#{@total_spend}" %></b></td>
-        </tr>
-      </table>
+  <div class="button_box">
+    <div class="button">
+      <a href="/bonzabudgeting/spendbytag"> View breakdown by tag </a>
     </div>
+    <div class="button">
+      <a href="/bonzabudgeting/spendbymerchant"> View breakdown by merchant </a>
+    </div>
+  </div>
+  <!-- <div class="button_fund_breakdown">
+  <form method="get" action="/bonzabudgeting/spendbytag">
+  <input type="submit" value = "View breakdown by tag"/>
+</form>
+<form method="get" action="/bonzabudgeting/spendbymerchant">
+<input type="submit" value = "View breakdown by merchant"/>
+</form>
+</div> -->
+<div class="budget_message">
+  <h2> <%= @budget_message %> </h2>
+</div>
+<div class="table_group">
+  <h3> Transactions </h3>
+
+  <table>
+    <tr>
+      <th>Merchant</th>
+      <th>Tag</th>
+      <th>Spend</th>
+    </tr>
+    <% @transactions.each() do |transaction| %>
+    <tr>
+      <td><%= transaction.merchant_name() %></td>
+      <td><%= transaction.tag_name() %></td>
+      <td><%= "£#{'%.2f' % transaction.amount()}" %></td>
+      <td class="table_end">
+        <div class="button">
+          <a href="/bonzabudgeting/<%= transaction.id() %>/edit"> Edit </a>
+         </div>
+        <!-- <form method="get" action="/bonzabudgeting/<%= transaction.id() %>/edit">
+          <input type="submit" value = "Edit"/>
+        </form> -->
+      </td>
+      <td class="table_end">
+        <form method="post" action="/bonzabudgeting/<%= transaction.id() %>/delete">
+          <input type="submit" value = "Delete"/>
+        </form>
+      </td>
+    </tr>
+    <% end %>
+    <tr>
+      <td class="table_end"></td>
+      <td class="table_end"></td>
+      <td class="table_end"><b><%= "£#{@total_spend}" %></b></td>
+    </tr>
+  </table>
+</div>
 </div>

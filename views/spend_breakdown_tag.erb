@@ -16,9 +16,12 @@
         <td><%= tag.name() %></td>
         <td><%= "£#{'%.2f' % tag.total_spend()}" %></td>
         <td class="table_end">
-          <form method="get" action="/bonzabudgeting/spendbytag/<%= tag.id() %>">
+          <div class="button">
+            <a href="/bonzabudgeting/spendbytag/<%= tag.id() %>"> View transactions </a>
+          </div>
+          <!-- <form method="get" action="/bonzabudgeting/spendbytag/<%= tag.id() %>">
             <input type="submit" value = "View transactions"/>
-          </form>
+          </form> -->
         </td>
       </tr>
       <% end %>
