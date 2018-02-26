@@ -44,6 +44,20 @@ class Transaction
     return tag_name
   end
 
+  def update()
+    sql = "UPDATE transactions
+    SET
+    (
+      amount, merchant_id, tag_id
+    )=
+    (
+      $1, $2, $3
+    )
+    WHERE id = $4;"
+    values = [@amount, @merchant_id, @tag_id, @id]
+    SqlRunner.run(sql, values)
+  end
+
   def Transaction.all()
     sql = "SELECT * FROM transactions;"
     transactions = SqlRunner.run(sql)
@@ -60,5 +74,14 @@ class Transaction
   def Transaction.delete_all()
     sql = "DELETE FROM transactions;"
     SqlRunner.run(sql)
+  end
+
+  def Transaction.find(id)
+    sql = "SELECT * FROM transactions
+    WHERE id = $1"
+    values = [id]
+    transaction_data = SqlRunner.run(sql, values).first()
+    result = Transaction.new(transaction_data)
+    return result
   end
 end

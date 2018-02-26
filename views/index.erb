@@ -1,33 +1,37 @@
 <div class="contents">
-<h1> Total spend to date: </h1>
-<h1 class="total_spend"> <%= @total_spend %> </h1>
-<div class="button_fund_breakdown">
-  <form method="get" action="/bonzabudgeting/spendbytag">
-  <input type="submit" value = "View breakdown by tag"/>
-  </form> </div>
+  <h1> Total spend to date: </h1>
+  <h1 class="total_spend"> <%= @total_spend %> </h1>
+  <div class="button_fund_breakdown">
+    <form method="get" action="/bonzabudgeting/spendbytag">
+      <input type="submit" value = "View breakdown by tag"/>
+    </form>
+  </div>
   <div class="table_group">
-<h3> Transactions </h3>
+    <h3> Transactions </h3>
 
-<table>
-  <tr>
-    <th>Merchant</th>
-    <th>Tag</th>
-    <th>Spend</th>
-  </tr>
-  <% @transactions.each() do |transaction| %>
-  <tr>
-    <td><%= transaction.merchant_name() %></td>
-    <td><%= transaction.tag_name() %></td>
-    <td><%= '%.2f' % transaction.amount() %></td>
-   </tr>
-  <% end %>
-   <tr>
-     <td class="table_end"></td>
-     <td class="table_end"></td>
-     <td class="table_end"><b><%= @total_spend %></b></td>
-   </tr>
-
-</table>
-</div>
-
+      <table>
+        <tr>
+          <th>Merchant</th>
+          <th>Tag</th>
+          <th>Spend</th>
+        </tr>
+        <% @transactions.each() do |transaction| %>
+        <tr>
+          <td><%= transaction.merchant_name() %></td>
+          <td><%= transaction.tag_name() %></td>
+          <td><%= '%.2f' % transaction.amount() %></td>
+          <td class="table_end">
+            <form method="get" action="/bonzabudgeting/<%= transaction.id() %>/edit">
+              <input type="submit" value = "Edit"/>
+            </form>
+          </td>
+        </tr>
+        <% end %>
+        <tr>
+          <td class="table_end"></td>
+          <td class="table_end"></td>
+          <td class="table_end"><b><%= @total_spend %></b></td>
+        </tr>
+      </table>
+    </div>
 </div>

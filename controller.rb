@@ -33,3 +33,16 @@ post '/bonzabudgeting' do
   Transaction.new(params).save()
   erb(:create)
 end
+
+get '/bonzabudgeting/:id/edit' do
+  @transaction = Transaction.find(params['id'])
+  @merchants = Merchant.all()
+  @tags = Tag.all()
+  erb(:edit)
+end
+
+post '/bonzabudgeting/:id' do
+  transaction = Transaction.new(params)
+  transaction.update()
+  erb(:update)
+end
