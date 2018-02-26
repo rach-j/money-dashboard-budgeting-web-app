@@ -1,12 +1,12 @@
 <div class="contents">
   <h1> My budget: </h1>
-  <h1 class="budget"> <%= "£#{@budget_value}" %></h1>
+  <h1 class="big_numbers"> <%= "£#{@budget_value}" %></h1>
     <div class="button">
       <a href="/bonzabudgeting/budget/<%= @budget.id() %>/budgetupdate"> Update budget </a>
     </div>
 
   <h1> Total spend to date: </h1>
-  <h1 class="total_spend"> <%= "£#{@total_spend}" %> </h1>
+  <h1 class="big_numbers"> <%= "£#{@total_spend}" %> </h1>
   <div class="button_box">
     <div class="button">
       <a href="/bonzabudgeting/spendbytag"> View breakdown by tag </a>
@@ -40,7 +40,7 @@
       <td><%= transaction.merchant_name() %></td>
       <td><%= transaction.tag_name() %></td>
       <td><%= "£#{'%.2f' % transaction.amount()}" %></td>
-      <td class="table_end">
+      <td class="no_border">
         <div class="button">
           <a href="/bonzabudgeting/<%= transaction.id() %>/edit"> Edit </a>
          </div>
@@ -48,7 +48,7 @@
           <input type="submit" value = "Edit"/>
         </form> -->
       </td>
-      <td class="table_end">
+      <td class="no_border">
         <form method="post" action="/bonzabudgeting/<%= transaction.id() %>/delete">
           <input type="submit" value = "Delete"/>
         </form>
@@ -56,9 +56,9 @@
     </tr>
     <% end %>
     <tr>
-      <td class="table_end"></td>
-      <td class="table_end"></td>
-      <td class="table_end"><b><%= "£#{@total_spend}" %></b></td>
+      <td class="no_border"></td>
+      <td class="no_border"></td>
+      <td class="no_border"><b><%= "£#{@total_spend}" %></b></td>
     </tr>
   </table>
 </div>

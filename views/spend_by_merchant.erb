@@ -1,7 +1,7 @@
 <div class="contents">
 
   <h1> Total spend on <%= @merchant.name() %>: </h1>
-  <h1 class="total_spend"> <%= "£#{@total_spend_by_merchant}" %> </h1>
+  <h1 class="big_numbers"> <%= "£#{@total_spend_by_merchant}" %> </h1>
 
   <div class="table_group">
 
@@ -19,8 +19,8 @@
       </tr>
       <% end %>
       <tr>
-        <td class="table_end"></td>
-        <td class="table_end"><b><%= "£#{@total_spend_by_merchant}" %></b></td>
+        <td class="no_border"></td>
+        <td class="no_border"><b><%= "£#{@total_spend_by_merchant}" %></b></td>
       </tr>
     </table>
 
