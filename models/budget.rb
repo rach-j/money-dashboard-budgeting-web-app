@@ -27,10 +27,10 @@ end
     budget = @value
     if spend > budget
       amount_over = '%.2f' % (spend - budget)
-      return "You are #{amount_over} over budget! Beans on toast for the rest of the week?"
+      return "You are £#{amount_over} over budget! Beans on toast for the rest of the week?"
     else
       amount_under = '%.2f' % (budget - spend)
-      return "Keep saving those pennies, you're #{amount_under} under budget!"
+      return "Keep saving those pennies, you're £#{amount_under} under budget!"
     end
   end
 

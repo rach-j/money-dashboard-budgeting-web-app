@@ -1,6 +1,6 @@
 <div class="contents">
   <h1> Total spend to date: </h1>
-  <h1 class="total_spend"> <%= @total_spend %> </h1>
+  <h1 class="total_spend"> <%= "£#{@total_spend}" %> </h1>
 
   <div class="table_group">
 
@@ -14,7 +14,7 @@
       <% @merchants.each() do |merchant| %>
       <tr>
         <td><%= merchant.name() %></td>
-        <td><%= '%.2f' % merchant.total_spend() %></td>
+        <td><%= "£#{'%.2f' % merchant.total_spend()}" %></td>
         <td class="table_end">
           <form method="get" action="/bonzabudgeting/spendbymerchant/<%= merchant.id() %>">
             <input type="submit" value = "View transactions"/>
@@ -24,7 +24,7 @@
       <% end %>
       <tr >
         <td class="table_end"></td>
-        <td class="table_end"><b><%= @total_spend %></b></td>
+        <td class="table_end"><b><%= "£#{@total_spend}" %></b></td>
       </tr>
 
     </table>

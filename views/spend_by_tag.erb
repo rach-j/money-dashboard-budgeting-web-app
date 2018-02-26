@@ -1,7 +1,7 @@
 <div class="contents">
 
   <h1> Total spend on <%= @tag.name() %>: </h1>
-  <h1 class="total_spend"> <%= @total_spend_by_tag %> </h1>
+  <h1 class="total_spend"> <%= "£#{@total_spend_by_tag}" %> </h1>
 
   <div class="table_group">
 
@@ -15,12 +15,12 @@
       <% @transactions_by_tag.each() do |transaction| %>
       <tr>
         <td> <%= transaction.merchant_name() %></td>
-        <td><%= '%.2f' % transaction.amount() %></td>
+        <td><%= "£#{'%.2f' % transaction.amount()}" %></td>
       </tr>
       <% end %>
       <tr>
         <td class="table_end"></td>
-        <td class="table_end"><b><%= @total_spend_by_tag %></b></td>
+        <td class="table_end"><b><%= "£#{@total_spend_by_tag}" %></b></td>
       </tr>
     </table>
 
