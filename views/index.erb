@@ -25,6 +25,11 @@
               <input type="submit" value = "Edit"/>
             </form>
           </td>
+          <td class="table_end">
+            <form method="post" action="/bonzabudgeting/<%= transaction.id() %>/delete">
+              <input type="submit" value = "Delete"/>
+            </form>
+          </td>
         </tr>
         <% end %>
         <tr>

@@ -46,3 +46,9 @@ post '/bonzabudgeting/:id' do
   transaction.update()
   erb(:update)
 end
+
+post '/bonzabudgeting/:id/delete' do
+  transaction = Transaction.find(params['id'])
+  transaction.delete()
+  redirect to '/bonzabudgeting'
+end
