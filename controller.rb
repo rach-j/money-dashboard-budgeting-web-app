@@ -23,6 +23,19 @@ get '/bonzabudgeting/spendbytag' do
   erb(:spend_breakdown_tag)
 end
 
+get '/bonzabudgeting/spendbymerchant/:id' do
+    @merchant = Merchant.find(params[:id].to_i())
+    @transactions_by_merchant = @merchant.transactions()
+    @total_spend_by_merchant = '%.2f' % @merchant.total_spend()
+    erb(:spend_by_merchant)
+end
+
+get '/bonzabudgeting/spendbymerchant' do
+  @merchants = Merchant.all()
+  @total_spend = '%.2f' % Transaction.total_spend()
+  erb(:spend_breakdown_merchant)
+end
+
 get '/bonzabudgeting/new' do
   @merchants = Merchant.all()
   @tags = Tag.all()

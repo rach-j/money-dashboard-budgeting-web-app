@@ -54,12 +54,6 @@ font-size: 5vh;
   padding-right: 5vh;
 }
 
-.total_spend_by_tag {
-  display: inline-block;
-  font-size: 10vh;
-  padding-right: 5vh;
-}
-
 .button_fund_breakdown {
   display: inline-block;
 }
