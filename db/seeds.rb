@@ -1,12 +1,14 @@
 require_relative('../models/merchant.rb')
 require_relative('../models/tag.rb')
 require_relative('../models/transaction.rb')
+require_relative('../models/budget.rb')
 require_relative('./sql_runner.rb')
 require('pry-byebug')
 
 Transaction.delete_all()
 Merchant.delete_all()
 Tag.delete_all()
+Budget.delete_all()
 
 tag1 = Tag.new({'name' => 'Groceries'})
 tag2 = Tag.new({'name' => 'Clothing'})
@@ -44,6 +46,9 @@ transaction3 = Transaction.new({
 transaction1.save()
 transaction2.save()
 transaction3.save()
+
+budget = Budget.new({'value' => 100.00})
+budget.save()
 
 binding.pry
 

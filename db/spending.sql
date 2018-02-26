@@ -1,6 +1,7 @@
 DROP TABLE IF EXISTS transactions;
 DROP TABLE IF EXISTS merchants;
 DROP TABLE IF EXISTS tags;
+DROP TABLE IF EXISTS budgets;
 
 CREATE TABLE merchants (
   id SERIAL4 PRIMARY KEY,
@@ -17,4 +18,9 @@ CREATE TABLE transactions (
   amount DECIMAL(10,2),
   merchant_id INT4 REFERENCES merchants(id),
   tag_id INT4 REFERENCES tags(id)
+);
+
+CREATE TABLE budgets (
+  id SERIAL4 PRIMARY KEY,
+  value DECIMAL(10,2)
 );

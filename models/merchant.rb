@@ -12,9 +12,9 @@ class Merchant
   def save()
     sql = "INSERT INTO merchants (
     name
-  )
-  VALUES
-  (
+    )
+    VALUES
+    (
     $1
     )
     RETURNING *;"

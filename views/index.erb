@@ -1,6 +1,13 @@
 <div class="contents">
   <h1> My budget: </h1>
-  <h1 class="budget"> 100.00 </h1>
+  <h1 class="budget"> <%= @budget_value %></h1>
+
+  <div class="button_update_budget">
+    <form method="get" action="/bonzabudgeting/budget/<%= @budget.id() %>/budgetupdate">
+      <input type="submit" value = "Update budget"/>
+    </form>
+  </div>
+
   <h1> Total spend to date: </h1>
   <h1 class="total_spend"> <%= @total_spend %> </h1>
   <div class="button_fund_breakdown">

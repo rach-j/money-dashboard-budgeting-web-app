@@ -3,12 +3,15 @@ require('sinatra/contrib/all')
 require_relative('models/merchant.rb')
 require_relative('models/tag.rb')
 require_relative('models/transaction.rb')
-require_relative('models/other_functions.rb')
+require_relative('models/budget.rb')
 
 get '/bonzabudgeting' do
   @transactions = Transaction.all()
   @total_spend = '%.2f' % Transaction.total_spend()
-  @budget_message = budget_compare(100,Transaction.total_spend())
+  @budget = Budget.all()[0]
+  # Only 1 entry so fine but is there a better way?
+  @budget_value = '%.2f' % @budget.value()
+  @budget_message = @budget.budget_compare(Transaction.total_spend())
   erb(:index)
 end
 
@@ -65,5 +68,16 @@ end
 post '/bonzabudgeting/:id/delete' do
   transaction = Transaction.find(params['id'])
   transaction.delete()
+  redirect to '/bonzabudgeting'
+end
+
+get '/bonzabudgeting/budget/:id/budgetupdate' do
+  @budget = Budget.find(params['id'])
+  erb(:update_budget)
+end
+
+post '/bonzabudgeting/budget/:id' do
+  budget = Budget.new(params)
+  budget.update()
   redirect to '/bonzabudgeting'
 end
