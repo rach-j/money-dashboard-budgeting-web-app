@@ -27,7 +27,8 @@ class Merchant
     sql = "SELECT transactions.* FROM transactions
     INNER JOIN merchants ON
     transactions.merchant_id = merchants.id
-    WHERE merchants.id = $1;"
+    WHERE merchants.id = $1
+    ORDER BY transaction_date DESC;"
     values = [@id]
     transactions = SqlRunner.run(sql, values)
     result = transactions.map {|transaction| Transaction.new(transaction)}

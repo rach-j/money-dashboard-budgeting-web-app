@@ -1,13 +1,19 @@
 <div class="contents">
   <div class="new_form">
     <form action="/bonzabudgeting" method="post">
+
       <div class="form-el">
-        <label for="spend">Enter amount spent:</label>
+        <label for="transaction_date"> Enter date of transaction: </label>
+        <input type="date" name="transaction_date" id="date" placeholder="dd/mm/yyyy" />
+      </div>
+
+      <div class="form-el">
+        <label for="spend"> Enter amount spent: </label>
         <input type="number" step="0.01" min="0" name="amount" id="spend"/>
       </div>
 
       <div class="form-el">
-        <label for="merchant-select">Select Merchant: </label>
+        <label for="merchant-select"> Select Merchant: </label>
         <select name="merchant_id" id="merchant-select">
           <% @merchants.each do |merchant| %>
           <option value=<%= merchant.id() %>><%= merchant.name() %></option>
@@ -16,7 +22,7 @@
       </div>
 
       <div class="form-el">
-        <label for="tag-select">Select Tag: </label>
+        <label for="tag-select"> Select Tag: </label>
         <select name="tag_id" id="tag-select">
           <% @tags.each do |tag| %>
           <option value=<%= tag.id() %>><%= tag.name() %></option>

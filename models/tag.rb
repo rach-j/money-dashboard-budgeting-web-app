@@ -27,7 +27,8 @@ class Tag
     sql = "SELECT transactions.* FROM transactions
     INNER JOIN tags ON
     transactions.tag_id = tags.id
-    WHERE tags.id = $1;"
+    WHERE tags.id = $1
+    ORDER BY transaction_date DESC;"
     values = [@id]
     transactions = SqlRunner.run(sql, values)
     result = transactions.map {|transaction| Transaction.new(transaction)}

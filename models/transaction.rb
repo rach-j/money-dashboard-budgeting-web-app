@@ -2,26 +2,27 @@ require_relative('../db/sql_runner.rb')
 
 class Transaction
 
-  attr_reader :id, :amount, :merchant_id, :tag_id
+  attr_reader :id, :amount, :merchant_id, :tag_id, :transaction_date
 
   def initialize(inputs)
     @id = inputs['id'].to_i() if inputs['id']
     @amount = inputs['amount'].to_f()
     @merchant_id = inputs['merchant_id'].to_i()
     @tag_id = inputs['tag_id'].to_i()
+    @transaction_date = inputs['transaction_date']
   end
 
   def save()
     sql = "INSERT INTO transactions (
-    amount, merchant_id, tag_id
+    amount, merchant_id, tag_id, transaction_date
   )
   VALUES (
-    $1, $2, $3
+    $1, $2, $3, $4
     )
     RETURNING *;"
-    values = [@amount, @merchant_id, @tag_id]
-    merchant_data = SqlRunner.run(sql, values)
-    @id = merchant_data.first()['id'].to_i()
+    values = [@amount, @merchant_id, @tag_id, @transaction_date]
+    transaction_data = SqlRunner.run(sql, values)
+    @id = transaction_data.first()['id'].to_i()
   end
 
   def merchant_name()
@@ -44,17 +45,27 @@ class Transaction
     return tag_name
   end
 
+  # def date()
+  #   sql = "SELECT dates.transaction_date FROM dates
+  #   INNER JOIN transactions ON
+  #   transactions.date_id = dates.id
+  #   WHERE transactions.id = $1;"
+  #   values = [@id]
+  #   date = SqlRunner.run(sql, values).first()['transaction_date']
+  #   return date
+  # end
+
   def update()
     sql = "UPDATE transactions
     SET
     (
-      amount, merchant_id, tag_id
+      amount, merchant_id, tag_id, transaction_date
     )=
     (
-      $1, $2, $3
+      $1, $2, $3, $4
     )
-    WHERE id = $4;"
-    values = [@amount, @merchant_id, @tag_id, @id]
+    WHERE id = $5;"
+    values = [@amount, @merchant_id, @tag_id, @transaction_date, @id]
     SqlRunner.run(sql, values)
   end
 
@@ -66,7 +77,8 @@ class Transaction
   end
 
   def Transaction.all()
-    sql = "SELECT * FROM transactions;"
+    sql = "SELECT * FROM transactions
+    ORDER BY transaction_date DESC;"
     transactions = SqlRunner.run(sql)
     result = transactions.map {|transaction| Transaction.new(transaction)}
     return result
@@ -91,4 +103,23 @@ class Transaction
     result = Transaction.new(transaction_data)
     return result
   end
+
+  def Transaction.transactions_by_month(month_number)
+    sql = "SELECT * FROM transactions
+    WHERE extract (month FROM transaction_date) = $1
+    ORDER BY transaction_date DESC;"
+    values = [month_number]
+    transactions = SqlRunner.run(sql,values)
+    result = transactions.map {|transaction| Transaction.new(transaction)}
+    return result
+  end
+
+  def Transaction.spending_by_month(month_number)
+    sql = "SELECT sum(amount) FROM transactions
+    WHERE extract (month FROM transaction_date) = $1;"
+    values = [month_number]
+    total = SqlRunner.run(sql,values).first()['sum'].to_f()
+    return total
+  end
+
 end

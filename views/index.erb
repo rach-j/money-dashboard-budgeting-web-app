@@ -1,4 +1,19 @@
+<div class="button_box">
+
+  <div class="button">
+    <a href="/bonzabudgeting/spendbytag"> View spend breakdown by tag </a>
+  </div>
+  <div class="button">
+    <a href="/bonzabudgeting/spendbymerchant"> View spend breakdown by merchant </a>
+  </div>
+  <div class="button">
+    <a href="/bonzabudgeting/spendbymonth"> View spend breakdown by month </a>
+  </div>
+</div>
+
 <div class="contents">
+
+
   <h1> My budget: </h1>
   <h1 class="big_numbers"> <%= "£#{@budget_value}" %></h1>
     <div class="button">
@@ -7,14 +22,7 @@
 
   <h1> Total spend to date: </h1>
   <h1 class="big_numbers"> <%= "£#{@total_spend}" %> </h1>
-  <div class="button_box">
-    <div class="button">
-      <a href="/bonzabudgeting/spendbytag"> View breakdown by tag </a>
-    </div>
-    <div class="button">
-      <a href="/bonzabudgeting/spendbymerchant"> View breakdown by merchant </a>
-    </div>
-  </div>
+
   <!-- <div class="button_fund_breakdown">
   <form method="get" action="/bonzabudgeting/spendbytag">
   <input type="submit" value = "View breakdown by tag"/>
@@ -31,12 +39,14 @@
 
   <table>
     <tr>
+      <th>Date</th>
       <th>Merchant</th>
       <th>Tag</th>
       <th>Spend</th>
     </tr>
     <% @transactions.each() do |transaction| %>
     <tr>
+      <td> <%= convert_to_UK_date(transaction.transaction_date()) %></td>
       <td><%= transaction.merchant_name() %></td>
       <td><%= transaction.tag_name() %></td>
       <td><%= "£#{'%.2f' % transaction.amount()}" %></td>
@@ -56,6 +66,7 @@
     </tr>
     <% end %>
     <tr>
+      <td class="no_border"></td>
       <td class="no_border"></td>
       <td class="no_border"></td>
       <td class="no_border"><b><%= "£#{@total_spend}" %></b></td>
