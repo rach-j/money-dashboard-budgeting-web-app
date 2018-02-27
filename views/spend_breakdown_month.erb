@@ -15,6 +15,11 @@
       <tr>
         <td><%= Date::MONTHNAMES[month] %></td>
         <td><%= "£#{'%.2f' % Transaction.spending_by_month(month)}" %></td>
+        <td class="no_border">
+          <div class="button">
+            <a href="/bonzabudgeting/spendbymonth/<%= month %>"> View transactions </a>
+          </div>
+        </td>
   </tr>
   <% end %>
   <tr >

@@ -40,42 +40,42 @@ transaction1 = Transaction.new({
   'amount' => 23.50,
   'merchant_id' => merchant1.id(),
   'tag_id' => tag1.id(),
-  'transaction_date' => '2017-02-11'
+  'transaction_date' => '2018-02-11'
   })
 
 transaction2 = Transaction.new({
   'amount' => 55.00,
   'merchant_id' => merchant2.id(),
   'tag_id' => tag2.id(),
-  'transaction_date' => '2017-02-23'
+  'transaction_date' => '2018-02-23'
   })
 
 transaction3 = Transaction.new({
   'amount' => 10.50,
   'merchant_id' => merchant3.id(),
   'tag_id' => tag3.id(),
-  'transaction_date' => '2017-01-09'
+  'transaction_date' => '2018-01-09'
     })
 
 transaction4 = Transaction.new({
   'amount' => 5.00,
   'merchant_id' => merchant1.id(),
   'tag_id' => tag2.id(),
-  'transaction_date' => '2017-01-09'
+  'transaction_date' => '2018-01-09'
     })
 
 transaction5 = Transaction.new({
   'amount' => 5.00,
   'merchant_id' => merchant3.id(),
   'tag_id' => tag3.id(),
-  'transaction_date' => '2017-02-11'
+  'transaction_date' => '2018-02-11'
     })
 
 transaction6 = Transaction.new({
   'amount' => 5.00,
   'merchant_id' => merchant2.id(),
   'tag_id' => tag2.id(),
-  'transaction_date' => '2017-02-11'
+  'transaction_date' => '2018-02-11'
     })
 
 

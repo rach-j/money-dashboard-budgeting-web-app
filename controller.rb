@@ -49,6 +49,14 @@ get '/bonzabudgeting/spendbymonth' do
   erb(:spend_breakdown_month)
 end
 
+get '/bonzabudgeting/spendbymonth/:month' do
+  month_number = params['month'].to_i()
+  @month = Date::MONTHNAMES[month_number]
+  @total_spend_in_month = '%.2f' % Transaction.spending_by_month(month_number)
+  @transactions_by_month = Transaction.transactions_by_month(month_number)
+  erb(:spend_by_month)
+end
+
 get '/bonzabudgeting/new' do
   @merchants = Merchant.all()
   @tags = Tag.all()
