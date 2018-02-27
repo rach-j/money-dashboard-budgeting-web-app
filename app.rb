@@ -8,10 +8,10 @@ require_relative('controllers/transaction_controller.rb')
 
 get '/bonzabudgeting' do
   @transactions = Transaction.all()
-  @total_spend = '%.2f' % Transaction.total_spend()
+  @total_spend = add_currency_sign(Transaction.total_spend())
   @budget = Budget.all()[0]
   # Only 1 entry so fine but is there a better way?
-  @budget_value = '%.2f' % @budget.value()
-  @budget_message = @budget.budget_compare(Transaction.total_spend())
+  @budget_value = add_currency_sign(@budget.value_to_display())
+  @budget_message = @budget.budget_compare(Transaction.total_spend().to_f())
   erb(:index)
 end

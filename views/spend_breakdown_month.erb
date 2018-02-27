@@ -1,7 +1,7 @@
 <div class="contents">
 
   <h1> Total spend to date: </h1>
-  <h1 class="big_numbers"> <%= "£#{@total_spend}" %> </h1>
+  <h1 class="big_numbers"> <%= @total_spend %> </h1>
 
   <div class="table_group">
 
@@ -16,7 +16,7 @@
       <% @months.each() do |month| %>
       <tr>
         <td><%= Date::MONTHNAMES[month] %></td>
-        <td><%= "£#{'%.2f' % Transaction.spending_by_month(month)}" %></td>
+        <td><%= add_currency_sign(Transaction.spending_by_month(month)) %></td>
         <td class="no_border">
           <div class="button">
             <a href="/bonzabudgeting/spendbymonth/<%= month %>"> View transactions </a>
@@ -27,7 +27,7 @@
 
       <tr >
         <td class="no_border"></td>
-        <td class="no_border"><b><%= "£#{@total_spend}" %></b></td>
+        <td class="no_border"><b><%= @total_spend %></b></td>
       </tr>
     </table>
 

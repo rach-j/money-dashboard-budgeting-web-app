@@ -1,14 +1,14 @@
 <div class="contents">
 
   <h1> My budget for the year: </h1>
-  <h1 class="big_numbers"> <%= "£#{@budget_value}" %></h1>
+  <h1 class="big_numbers"> <%= @budget_value %></h1>
 
   <div class="button">
     <a href="/bonzabudgeting/budget/<%= @budget.id() %>/budgetupdate"> Update budget </a>
   </div>
 
   <h1> Total spend to date: </h1>
-  <h1 class="big_numbers"> <%= "£#{@total_spend}" %> </h1>
+  <h1 class="big_numbers"> <%= @total_spend %> </h1>
 
   <div class="budget_message">
     <h2> <%= @budget_message %> </h2>
@@ -30,7 +30,7 @@
         <td> <%= convert_to_UK_date(transaction.transaction_date()) %></td>
         <td><%= transaction.merchant_name() %></td>
         <td><%= transaction.tag_name() %></td>
-        <td><%= "£#{'%.2f' % transaction.amount()}" %></td>
+        <td><%= transaction.amount_to_display() %></td>
         <td class="no_border">
           <div class="button">
             <a href="/bonzabudgeting/<%= transaction.id() %>/edit"> Edit </a>
@@ -48,10 +48,10 @@
         <td class="no_border"></td>
         <td class="no_border"></td>
         <td class="no_border"></td>
-        <td class="no_border"><b><%= "£#{@total_spend}" %></b></td>
+        <td class="no_border"><b><%= @total_spend %></b></td>
       </tr>
     </table>
 
   </div>
-  
+
 </div>

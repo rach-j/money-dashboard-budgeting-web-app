@@ -40,7 +40,7 @@ class Tag
     sql = "SELECT SUM(amount) FROM transactions
     WHERE transactions.tag_id = $1;"
     values=[@id]
-    total = SqlRunner.run(sql, values).first()['sum'].to_f()
+    total = '%.2f' % SqlRunner.run(sql, values).first()['sum'].to_f()
     return total
   end
 

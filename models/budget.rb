@@ -28,10 +28,10 @@ class Budget
     budget = @value
     if spend > budget
       amount_over = '%.2f' % (spend - budget)
-      return "You are £#{amount_over} over budget! Beans on toast for the rest of the week?"
+      return "You are #{add_currency_sign(amount_over)} over budget! Beans on toast for the rest of the week?"
     else
       amount_under = '%.2f' % (budget - spend)
-      return "Keep saving those pennies, you're £#{amount_under} under budget!"
+      return "Keep saving those pennies, you're #{add_currency_sign(amount_under)} under budget!"
     end
   end
 
@@ -44,6 +44,10 @@ class Budget
     WHERE id = $2;"
     values = [@value, @id]
     SqlRunner.run(sql, values)
+  end
+
+  def value_to_display
+    return '%.2f' % @value
   end
 
 

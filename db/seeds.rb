@@ -2,14 +2,12 @@ require_relative('../models/merchant.rb')
 require_relative('../models/tag.rb')
 require_relative('../models/transaction.rb')
 require_relative('../models/budget.rb')
-# require_relative('../models/date.rb')
 require_relative('./sql_runner.rb')
 require('pry-byebug')
 
 Transaction.delete_all()
 Merchant.delete_all()
 Tag.delete_all()
-# TransactionDate.delete_all()
 Budget.delete_all()
 
 tag1 = Tag.new({'name' => 'Groceries'})
@@ -27,14 +25,6 @@ merchant3 = Merchant.new({'name' => 'Odeon'})
 merchant1.save()
 merchant2.save()
 merchant3.save()
-
-# date1 = TransactionDate.new({'transaction_date' => '2017-02-11'})
-# date2 = TransactionDate.new({'transaction_date' => '2017-02-23'})
-# date3 = TransactionDate.new({'transaction_date' => '2017-01-09'})
-#
-# date1.save()
-# date2.save()
-# date3.save()
 
 transaction1 = Transaction.new({
   'amount' => 23.50,

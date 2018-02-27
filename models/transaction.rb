@@ -1,4 +1,5 @@
 require_relative('../db/sql_runner.rb')
+require_relative('./other_functions.rb')
 
 class Transaction
 
@@ -69,6 +70,10 @@ class Transaction
     SqlRunner.run(sql, values)
   end
 
+  def amount_to_display
+    return add_currency_sign('%.2f' % @amount)
+  end
+
   def Transaction.all()
     sql = "SELECT * FROM transactions
     ORDER BY transaction_date DESC;"
@@ -79,7 +84,7 @@ class Transaction
 
   def Transaction.total_spend()
     sql = "SELECT SUM(amount) FROM transactions;"
-    total = SqlRunner.run(sql).first()['sum'].to_f()
+    total = '%.2f' % SqlRunner.run(sql).first()['sum'].to_f()
     return total
   end
 
@@ -111,7 +116,7 @@ class Transaction
     sql = "SELECT sum(amount) FROM transactions
     WHERE extract (month FROM transaction_date) = $1;"
     values = [month_number]
-    total = SqlRunner.run(sql,values).first()['sum'].to_f()
+    total = '%.2f' % SqlRunner.run(sql,values).first()['sum'].to_f()
     return total
   end
 

@@ -1,7 +1,7 @@
 <div class="contents">
 
   <h1> Total spend on <%= @tag.name() %>: </h1>
-  <h1 class="big_numbers"> <%= "£#{@total_spend_by_tag}" %> </h1>
+  <h1 class="big_numbers"> <%= @total_spend_by_tag %> </h1>
 
   <div class="table_group">
 
@@ -18,14 +18,14 @@
       <tr>
         <td><%= convert_to_UK_date(transaction.transaction_date()) %></td>
         <td><%= transaction.merchant_name() %></td>
-        <td><%= "£#{'%.2f' % transaction.amount()}" %></td>
+        <td><%= transaction.amount_to_display() %></td>
       </tr>
       <% end %>
-      
+
       <tr>
         <td class="no_border"></td>
         <td class="no_border"></td>
-        <td class="no_border"><b><%= "£#{@total_spend_by_tag}" %></b></td>
+        <td class="no_border"><b><%= @total_spend_by_tag %></b></td>
       </tr>
     </table>
 
