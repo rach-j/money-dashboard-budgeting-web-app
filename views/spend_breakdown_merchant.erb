@@ -16,7 +16,7 @@
       <% @merchants.each() do |merchant| %>
       <tr>
         <td><%= merchant.name() %></td>
-        <td><%= add_currency_sign(merchant.total_spend()) %></td>
+        <td><%= merchant.total_spend() %></td>
         <td class="no_border">
           <div class="button">
             <a href="/bonzabudgeting/spendbymerchant/<%= merchant.id() %>"> View transactions </a>

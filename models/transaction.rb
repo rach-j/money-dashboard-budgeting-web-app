@@ -84,7 +84,7 @@ class Transaction
 
   def Transaction.total_spend()
     sql = "SELECT SUM(amount) FROM transactions;"
-    total = '%.2f' % SqlRunner.run(sql).first()['sum'].to_f()
+    total = add_currency_sign('%.2f' % SqlRunner.run(sql).first()['sum'].to_f())
     return total
   end
 
@@ -116,7 +116,7 @@ class Transaction
     sql = "SELECT sum(amount) FROM transactions
     WHERE extract (month FROM transaction_date) = $1;"
     values = [month_number]
-    total = '%.2f' % SqlRunner.run(sql,values).first()['sum'].to_f()
+    total = add_currency_sign('%.2f' % SqlRunner.run(sql,values).first()['sum'].to_f())
     return total
   end
 

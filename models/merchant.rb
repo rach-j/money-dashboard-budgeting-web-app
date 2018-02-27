@@ -1,4 +1,5 @@
 require_relative('../db/sql_runner.rb')
+require_relative('./other_functions.rb')
 
 class Merchant
 
@@ -40,7 +41,7 @@ class Merchant
     sql = "SELECT SUM(amount) FROM transactions
     WHERE transactions.merchant_id = $1;"
     values=[@id]
-    total = '%.2f' % SqlRunner.run(sql, values).first()['sum'].to_f()
+    total = add_currency_sign('%.2f' % SqlRunner.run(sql, values).first()['sum'].to_f())
     return total
   end
 

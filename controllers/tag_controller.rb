@@ -9,12 +9,12 @@ require_relative('../models/other_functions.rb')
 get '/bonzabudgeting/spendbytag/:id' do
   @tag = Tag.find(params['id'])
   @transactions_by_tag = @tag.transactions()
-  @total_spend_by_tag = add_currency_sign(@tag.total_spend())
+  @total_spend_by_tag = @tag.total_spend()
   erb(:spend_by_tag)
 end
 
 get '/bonzabudgeting/spendbytag' do
   @tags = Tag.all()
-  @total_spend = add_currency_sign(Transaction.total_spend())
+  @total_spend = Transaction.total_spend()
   erb(:spend_breakdown_tag)
 end

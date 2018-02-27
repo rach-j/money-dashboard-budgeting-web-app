@@ -16,7 +16,7 @@
       <% @months.each() do |month| %>
       <tr>
         <td><%= Date::MONTHNAMES[month] %></td>
-        <td><%= add_currency_sign(Transaction.spending_by_month(month)) %></td>
+        <td><%= Transaction.spending_by_month(month) %></td>
         <td class="no_border">
           <div class="button">
             <a href="/bonzabudgeting/spendbymonth/<%= month %>"> View transactions </a>

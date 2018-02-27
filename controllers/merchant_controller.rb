@@ -9,13 +9,13 @@ require_relative('../models/other_functions.rb')
 get '/bonzabudgeting/spendbymerchant/:id' do
   @merchant = Merchant.find(params['id'])
   @transactions_by_merchant = @merchant.transactions()
-  @total_spend_by_merchant = add_currency_sign(@merchant.total_spend())
+  @total_spend_by_merchant = @merchant.total_spend()
   # erb(:"merchant/spend_by_merchant")
   erb(:spend_by_merchant)
 end
 
 get '/bonzabudgeting/spendbymerchant' do
   @merchants = Merchant.all()
-  @total_spend = add_currency_sign(Transaction.total_spend())
+  @total_spend = Transaction.total_spend()
   erb(:spend_breakdown_merchant)
 end

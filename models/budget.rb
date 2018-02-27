@@ -1,4 +1,5 @@
 require_relative('../db/sql_runner')
+require_relative('./other_functions.rb')
 
 class Budget
 
@@ -47,7 +48,7 @@ class Budget
   end
 
   def value_to_display
-    return '%.2f' % @value
+    return add_currency_sign('%.2f' % @value)
   end
 
 
