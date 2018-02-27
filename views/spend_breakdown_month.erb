@@ -1,4 +1,5 @@
 <div class="contents">
+
   <h1> Total spend to date: </h1>
   <h1 class="big_numbers"> <%= "£#{@total_spend}" %> </h1>
 
@@ -8,9 +9,10 @@
 
     <table>
       <tr>
-        <th>Month</th>
-        <th>Spend</th>
+        <th> Month </th>
+        <th> Spend </th>
       </tr>
+
       <% @months.each() do |month| %>
       <tr>
         <td><%= Date::MONTHNAMES[month] %></td>
@@ -20,13 +22,15 @@
             <a href="/bonzabudgeting/spendbymonth/<%= month %>"> View transactions </a>
           </div>
         </td>
-  </tr>
-  <% end %>
-  <tr >
-    <td class="no_border"></td>
-    <td class="no_border"><b><%= "£#{@total_spend}" %></b></td>
-  </tr>
+      </tr>
+      <% end %>
 
-</table>
-</div>
+      <tr >
+        <td class="no_border"></td>
+        <td class="no_border"><b><%= "£#{@total_spend}" %></b></td>
+      </tr>
+    </table>
+
+  </div>
+
 </div>

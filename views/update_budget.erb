@@ -1,6 +1,8 @@
 <div class="contents">
+
   <div class="new_form">
     <form action="/bonzabudgeting/budget/<%= @budget.id() %>" method="post">
+
       <div class="form-el">
         <label for="budget">Enter new budget:</label>
         <input type="number" step="0.01" min="0" name="value" id="budget" value="<%= @budget.value() %>"/>
@@ -9,5 +11,7 @@
       <div class="form-el">
         <input type="submit" value="Update budget"/>
       </div>
-    </div>
+
   </div>
+
+</div>

@@ -13,6 +13,7 @@
         <th> Merchant </th>
         <th> Spend </th>
       </tr>
+
       <% @transactions_by_tag.each() do |transaction| %>
       <tr>
         <td><%= convert_to_UK_date(transaction.transaction_date()) %></td>
@@ -20,6 +21,7 @@
         <td><%= "£#{'%.2f' % transaction.amount()}" %></td>
       </tr>
       <% end %>
+      
       <tr>
         <td class="no_border"></td>
         <td class="no_border"></td>

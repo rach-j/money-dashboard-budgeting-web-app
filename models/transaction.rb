@@ -13,11 +13,13 @@ class Transaction
   end
 
   def save()
-    sql = "INSERT INTO transactions (
-    amount, merchant_id, tag_id, transaction_date
-  )
-  VALUES (
-    $1, $2, $3, $4
+    sql = "INSERT INTO transactions
+    (
+      amount, merchant_id, tag_id, transaction_date
+    )
+    VALUES
+    (
+      $1, $2, $3, $4
     )
     RETURNING *;"
     values = [@amount, @merchant_id, @tag_id, @transaction_date]
@@ -45,22 +47,13 @@ class Transaction
     return tag_name
   end
 
-  # def date()
-  #   sql = "SELECT dates.transaction_date FROM dates
-  #   INNER JOIN transactions ON
-  #   transactions.date_id = dates.id
-  #   WHERE transactions.id = $1;"
-  #   values = [@id]
-  #   date = SqlRunner.run(sql, values).first()['transaction_date']
-  #   return date
-  # end
-
   def update()
     sql = "UPDATE transactions
     SET
     (
       amount, merchant_id, tag_id, transaction_date
-    )=
+    )
+    =
     (
       $1, $2, $3, $4
     )

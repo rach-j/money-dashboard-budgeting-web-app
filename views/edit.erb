@@ -1,38 +1,40 @@
 <div class="contents">
+
   <div class="new_form">
     <form action="/bonzabudgeting/<%= @transaction.id() %>" method="post">
 
-        <div class="form-el">
-          <label for="transaction_date"> Enter date of transaction: </label>
-          <input type="date" name="transaction_date" id="date" value="<%= @transaction.transaction_date() %>"/>
-      </div>
       <div class="form-el">
-        <label for="spend">Enter amount spent:</label>
+        <label for="transaction_date"> Enter date of transaction: </label>
+        <input type="date" name="transaction_date" id="date" value="<%= @transaction.transaction_date() %>"/>
+      </div>
+
+      <div class="form-el">
+        <label for="spend"> Enter amount spent: </label>
         <input type="number" step="0.01" min="0" name="amount" id="spend" value="<%= @transaction.amount() %>"/>
       </div>
 
       <div class="form-el">
-        <label for="merchant-select">Select Merchant: </label>
+        <label for="merchant-select"> Select Merchant: </label>
         <select name="merchant_id" id="merchant-select" selected="<%= @transaction.merchant_id() %>">
           <% @merchants.each do |merchant| %>
-            <% if merchant.id() == @transaction.merchant_id() %>
-              <option value=<%= merchant.id() %> selected><%= merchant.name() %></option>
-            <% else %>
-              <option value=<%= merchant.id() %>><%= merchant.name() %></option>
-            <% end %>
+          <% if merchant.id() == @transaction.merchant_id() %>
+          <option value=<%= merchant.id() %> selected><%= merchant.name() %></option>
+          <% else %>
+          <option value=<%= merchant.id() %>><%= merchant.name() %></option>
+          <% end %>
           <% end %>
         </select>
       </div>
 
       <div class="form-el">
-        <label for="tag-select">Select Tag: </label>
+        <label for="tag-select"> Select Tag: </label>
         <select name="tag_id" id="tag-select" selected="<@= transaction.tag_id() %>">
           <% @tags.each do |tag| %>
-            <% if tag.id() == @transaction.tag_id() %>
-              <option value=<%= tag.id() %> selected><%= tag.name() %></option>
-            <% else %>
-              <option value=<%= tag.id() %>><%= tag.name() %></option>
-            <% end %>
+          <% if tag.id() == @transaction.tag_id() %>
+          <option value=<%= tag.id() %> selected><%= tag.name() %></option>
+          <% else %>
+          <option value=<%= tag.id() %>><%= tag.name() %></option>
+          <% end %>
           <% end %>
         </select>
       </div>
@@ -40,3 +42,7 @@
       <div class="form-el">
         <input type="submit" value="Edit transaction"/>
       </div>
+
+  </div>
+
+</div>

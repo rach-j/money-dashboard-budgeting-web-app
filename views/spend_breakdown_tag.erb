@@ -1,4 +1,5 @@
 <div class="contents">
+
   <h1> Total spend to date: </h1>
   <h1 class="big_numbers"> <%= "£#{@total_spend}" %> </h1>
 
@@ -8,9 +9,10 @@
 
     <table>
       <tr>
-        <th>Tag</th>
-        <th>Spend</th>
+        <th> Tag </th>
+        <th> Spend </th>
       </tr>
+
       <% @tags.each() do |tag| %>
       <tr>
         <td><%= tag.name() %></td>
@@ -19,17 +21,14 @@
           <div class="button">
             <a href="/bonzabudgeting/spendbytag/<%= tag.id() %>"> View transactions </a>
           </div>
-          <!-- <form method="get" action="/bonzabudgeting/spendbytag/<%= tag.id() %>">
-            <input type="submit" value = "View transactions"/>
-          </form> -->
         </td>
       </tr>
       <% end %>
+
       <tr >
         <td class="no_border"></td>
         <td class="no_border"><b><%= "£#{@total_spend}" %></b></td>
       </tr>
-
     </table>
 
   </div>

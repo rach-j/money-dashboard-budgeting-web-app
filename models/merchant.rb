@@ -10,12 +10,13 @@ class Merchant
   end
 
   def save()
-    sql = "INSERT INTO merchants (
-    name
+    sql = "INSERT INTO merchants
+    (
+      name
     )
     VALUES
     (
-    $1
+      $1
     )
     RETURNING *;"
     values =[@name]

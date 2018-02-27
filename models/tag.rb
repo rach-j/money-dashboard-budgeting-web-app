@@ -10,7 +10,8 @@ class Tag
   end
 
   def save()
-    sql = "INSERT INTO tags (
+    sql = "INSERT INTO tags
+    (
       name
     )
     VALUES

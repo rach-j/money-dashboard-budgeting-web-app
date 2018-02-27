@@ -10,18 +10,19 @@ class Budget
   end
 
   def save()
-    sql = "INSERT INTO budgets (
-    value
+    sql = "INSERT INTO budgets
+    (
+      value
     )
     VALUES
     (
-    $1
+      $1
     )
     RETURNING *;"
     values = [@value]
     budget_data = SqlRunner.run(sql, values)
     @id = budget_data.first()['id'].to_i()
-end
+  end
 
   def budget_compare(spend)
     budget = @value
@@ -38,7 +39,7 @@ end
     sql = "UPDATE budgets
     SET
       value
-      =
+    =
       $1
     WHERE id = $2;"
     values = [@value, @id]

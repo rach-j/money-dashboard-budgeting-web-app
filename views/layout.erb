@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -7,12 +8,14 @@
   <link href="https://fonts.googleapis.com/css?family=Lobster|Nanum+Gothic" rel="stylesheet">
   <title> Spending Tracker </title>
 </head>
+
 <body>
   <nav>
     <div class="nav_button"><a href="/bonzabudgeting"> Home </a></div>
     <div class="logo"> Bonza Budgeting </div>
     <div class="nav_button"><a href="/bonzabudgeting/new"> Add New Transaction </a></div>
   </nav>
+
   <div class="button_box">
 
     <div class="button">
@@ -24,8 +27,10 @@
     <div class="button">
       <a href="/bonzabudgeting/spendbymonth"> View spend breakdown by month </a>
     </div>
+
   </div>
-  
+
   <%= yield %>
 </body>
+
 </html>
