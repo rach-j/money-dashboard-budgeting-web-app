@@ -12,6 +12,6 @@ get '/bonzabudgeting' do
   @budget = Budget.all()[0]
   # Only 1 entry so fine but is there a better way?
   @budget_value = @budget.value_to_display()
-  @budget_message = @budget.budget_compare(Transaction.total_spend().to_f())
+  @budget_message = @budget.budget_compare(Transaction.total_spend()[1..-1].to_f())
   erb(:index)
 end

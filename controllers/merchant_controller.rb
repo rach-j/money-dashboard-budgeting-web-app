@@ -11,11 +11,11 @@ get '/bonzabudgeting/spendbymerchant/:id' do
   @transactions_by_merchant = @merchant.transactions()
   @total_spend_by_merchant = @merchant.total_spend()
   # erb(:"merchant/spend_by_merchant")
-  erb(:spend_by_merchant)
+  erb(:"merchant/spend_by_merchant")
 end
 
 get '/bonzabudgeting/spendbymerchant' do
   @merchants = Merchant.all()
   @total_spend = Transaction.total_spend()
-  erb(:spend_breakdown_merchant)
+  erb(:"merchant/spend_breakdown_merchant")
 end
