@@ -19,15 +19,20 @@ end
 
 get '/bonzabudgeting/:id/edit' do
   @transaction = Transaction.find(params['id'])
-  @merchants = Merchant.all()
-  @tags = Tag.all()
-  erb(:"transaction/edit")
+    @merchants = Merchant.all()
+    @tags = Tag.all()
+    erb(:"transaction/edit")
 end
 
 post '/bonzabudgeting/:id' do
   transaction = Transaction.new(params)
-  transaction.update()
-  erb(:"transaction/update")
+  # date = Date.parse(transaction.transaction_date())
+  # if Date.valid_date?(date.year(), date.month(), date.day())
+    transaction.update()
+    erb(:"transaction/update")
+  # else
+  #   erb(:"transaction/invalid_date")
+  # end
 end
 
 post '/bonzabudgeting/:id/delete' do

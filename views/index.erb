@@ -1,21 +1,53 @@
 <div class="contents">
 
-  <h1> My budget for the year: </h1>
-  <h1 class="big_numbers"> <%= @budget_value %></h1>
-
-  <div class="button">
-    <a href="/bonzabudgeting/budget/<%= @budget.id() %>/budgetupdate"> Update budget </a>
-  </div>
-
-  <h1> Total spend to date: </h1>
-  <h1 class="big_numbers"> <%= @total_spend %> </h1>
-
   <div class="budget_message">
     <h2> <%= @budget_message %> </h2>
   </div>
 
+  <h1 class ="front_page_text"> My budget for the year: </h1>
+  <h1 class="big_numbers"> <%= @budget_value %></h1>
+
+
+  <h1 class ="front_page_text"> Total spend to date: </h1>
+  <h1 class="big_numbers"> <%= @total_spend %> </h1>
+
+  <div class="update_budget_button">
+    <a href="/bonzabudgeting/budget/<%= @budget.id() %>/budgetupdate"> Update budget </a>
+  </div>
+
   <div class="table_group">
-    <h3> Transactions </h3>
+
+    <div class="top_box">
+    <h2 class = "transaction_title"> Transactions </h2>
+      <div class="button_box">
+      <a class="breakdown_button" href="/bonzabudgeting/spendbytag"> View spend breakdown by tag </a>
+      <a class="breakdown_button" href="/bonzabudgeting/spendbymerchant"> View spend breakdown by merchant </a>
+      <a class="breakdown_button" href="/bonzabudgeting/spendbymonth"> View spend breakdown by month </a>
+      <a class="breakdown_button" href="/bonzabudgeting"> View all transactions </a>
+    </div>
+  </div>
+
+    <a class="add_new_button" href="/bonzabudgeting/new"> Add New Transaction </a>
+
+
+    <!-- <div class="new_form">
+
+      <form action="/bonzabudgeting/<%= params['page_select'] %>" method="get">
+
+        <div class="form-el">
+          <label for="page-select"> Select view: </label>
+          <select name="page_select" id="page-select">
+            <option value="spendbymerchant"> View spend breakdown by Merchant </option>
+            <option value="spendbytag"> View spend breakdown by Tag </option>
+            <option value="spendbymonth"> View spend breakdown by Month </option>
+          </select>
+        </div>
+
+        <div class="form-el">
+          <input type="submit" value="Go"/>
+        </div>
+
+      </form> -->
 
     <table>
       <tr>
