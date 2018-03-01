@@ -19,27 +19,28 @@
 
     <table>
       <tr>
-        <th> Month </th>
+        <th> Month </th> 
         <th> Spend </th>
         <th class="percentage"> Percentage of total spend </th>
       </tr>
 
       <% running_total = 0 %>
       <% @months.each() do |month| %>
+        <% if Transaction.spending_by_month(month) != "£0.00" %>
+          <tr>
+            <td><%= Date::MONTHNAMES[month] %></td>
+            <td><%= Transaction.spending_by_month(month) %></td>
+            <td class="percentage">
+              <%= percentage_of_total(Transaction.spending_by_month(month), @total_spend) %>
+            </td>
+            <td class="no_border">
+              <a class="view_edit_button" href="/bonzabudgeting/spendbymonth/<%= month %>">
+                View transactions </a>
+            </td>
+          </tr>
+        <% end %>
 
-      <tr>
-        <td><%= Date::MONTHNAMES[month] %></td>
-        <td><%= Transaction.spending_by_month(month) %></td>
-        <td class="percentage">
-          <%= percentage_of_total(Transaction.spending_by_month(month), @total_spend) %>
-        </td>
-        <td class="no_border">
-            <a class="view_edit_button" href="/bonzabudgeting/spendbymonth/<%= month %>">
-              View transactions </a>
-        </td>
-      </tr>
-
-      <% running_total += convert_back_to_num(Transaction.spending_by_month(month)) %>
+        <% running_total += convert_back_to_num(Transaction.spending_by_month(month)) %>
       <% end %>
 
       <% total_summed = to_display(running_total) %>

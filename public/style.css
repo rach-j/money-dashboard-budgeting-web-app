@@ -79,7 +79,7 @@ td {
 
 .front_page_text {
   margin-left: 15vh;
-  width: 60vh;
+  width: 58vh;
   display: inline-block;
   font-size: 5vh;
 }
@@ -88,9 +88,8 @@ td {
   display: inline-block;
   font-size: 9vh;
   padding-right: 3vh;
-  margin-right: 48vh;
+  margin-right: 20vh;
 }
-
 
 .table_group {
   width: 160vh;
@@ -169,7 +168,6 @@ td {
 .above_form p {
   margin-left: 6vh;
   margin-bottom: 2vh;
-  /* border: solid; */
   width: 40vh;
   color: white;
 }

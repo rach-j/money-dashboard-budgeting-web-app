@@ -26,18 +26,19 @@
 
       <% running_total = 0 %>
       <% @merchants.each() do |merchant| %>
+        <% if merchant.total_spend() != "£0.00" %>
+          <tr>
+            <td><%= merchant.name() %></td>
+            <td><%= merchant.total_spend() %></td>
+            <td class="percentage"><%= percentage_of_total(merchant.total_spend(), @total_spend) %></td>
+            <td class="no_border">
+              <a class="view_edit_button" href="/bonzabudgeting/spendbymerchant/<%= merchant.id() %>">
+                View transactions </a>
+            </td>
+          </tr>
+        <%end %>
 
-      <tr>
-        <td><%= merchant.name() %></td>
-        <td><%= merchant.total_spend() %></td>
-        <td class="percentage"><%= percentage_of_total(merchant.total_spend(), @total_spend) %></td>
-        <td class="no_border">
-            <a class="view_edit_button" href="/bonzabudgeting/spendbymerchant/<%= merchant.id() %>">
-              View transactions </a>
-        </td>
-      </tr>
-
-      <% running_total += convert_back_to_num(merchant.total_spend()) %>
+        <% running_total += convert_back_to_num(merchant.total_spend()) %>
       <% end %>
 
       <% total_summed = to_display(running_total) %>

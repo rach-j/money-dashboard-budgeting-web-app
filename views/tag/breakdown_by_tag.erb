@@ -26,20 +26,20 @@
 
       <% running_total = 0 %>
       <% @tags.each() do |tag| %>
-
-      <tr>
-        <td><%= tag.name() %></td>
-        <td><%= tag.total_spend() %></td>
-        <td class="percentage"><%= percentage_of_total(tag.total_spend(), @total_spend) %></td>
-        <td class="no_border">
-            <a class= "view_edit_button" href="/bonzabudgeting/spendbytag/<%= tag.id() %>">
-              View transactions </a>
-        </td>
-      </tr>
-
-      <% running_total += convert_back_to_num(tag.total_spend()) %>
+        <% if tag.total_spend() != "£0.00" %>
+          <tr>
+            <td><%= tag.name() %></td>
+            <td><%= tag.total_spend() %></td>
+            <td class="percentage"><%= percentage_of_total(tag.total_spend(), @total_spend) %></td>
+            <td class="no_border">
+              <a class= "view_edit_button" href="/bonzabudgeting/spendbytag/<%= tag.id() %>">
+                View transactions </a>
+              </td>
+            </tr>
+          <% end %>
+          <% running_total += convert_back_to_num(tag.total_spend()) %>
       <% end %>
-      
+
       <% total_summed = to_display(running_total) %>
 
       <tr >
