@@ -144,17 +144,22 @@ td {
 .above_form {
   position: relative;
   top: 2vh;
-  background-color: #9FB4C7;
+  background-color: #7F7CAF;
   margin: 0vh auto;
   width: 70vh;
-  height: 10vh;
+  height: 18vh;
   display: flex;
   align-items: center;
   border-radius: 2vh;
+  flex-wrap: wrap;
+  justify-content: flex-start;
 }
 
 .above_form p {
   margin-left: 6vh;
+  margin-bottom: 2vh;
+  /* border: solid; */
+  width: 42vh;
 }
 
 .form-el {
@@ -294,7 +299,6 @@ a.link_new_merchant {
   padding: 2vh;
   text-align: center;
   display: block;
-  /* width: 10vh; */
 }
 
 a.link_new_merchant:hover {
@@ -306,8 +310,8 @@ a.new_button {
   font-size: 1.8vh;
   background-color: white;
   border-radius: 1vh;
-  padding: 0.2vh;
-  margin: 4vh;
+  padding: 0.6vh;
+  margin-left: 1vh;
   text-align: center;
   display: inline-block;
 }

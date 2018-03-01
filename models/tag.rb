@@ -65,4 +65,17 @@ class Tag
     result = Tag.new(tag_data)
     return result
   end
+
+  def Tag.name_exists?(name)
+    sql = "SELECT * FROM tags
+    WHERE name = $1"
+    values = [name]
+    tag_data = SqlRunner.run(sql, values).first()
+    if tag_data != nil
+      return true
+    else
+      return false
+    end
+    return result
+  end
 end

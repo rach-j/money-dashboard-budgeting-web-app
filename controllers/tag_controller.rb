@@ -18,3 +18,17 @@ get '/bonzabudgeting/spendbytag' do
   @total_spend = Transaction.total_spend()
   erb(:"tag/spend_breakdown_tag")
 end
+
+get '/bonzabudgeting/newtag' do
+  erb(:"tag/add_new_tag")
+end
+
+get '/bonzabudgeting/newtagexists' do
+  erb(:"tag/tag_exists_message")
+end
+
+post '/bonzabudgeting/tags' do
+  redirect to '/bonzabudgeting/newtagexists' if Tag.name_exists?(params['name'])
+  Tag.new(params).save()
+  erb(:"tag/new_tag_message")
+end
