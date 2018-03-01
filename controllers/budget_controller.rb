@@ -14,5 +14,5 @@ end
 post '/bonzabudgeting/budget/:id' do
   budget = Budget.new(params)
   budget.update()
-  redirect to '/bonzabudgeting'
+  erb(:"budget/budget_updated_message")
 end

@@ -21,22 +21,30 @@
       <tr>
         <th> Tag </th>
         <th> Spend </th>
+        <th class="percentage"> Percentage of total spend </th>
       </tr>
 
+      <% running_total = 0 %>
       <% @tags.each() do |tag| %>
       <tr>
         <td><%= tag.name() %></td>
         <td><%= tag.total_spend() %></td>
+        <td class="percentage"><%= percentage_of_total(tag.total_spend(), @total_spend) %></td>
         <td class="no_border">
             <a class= "view_edit_button" href="/bonzabudgeting/spendbytag/<%= tag.id() %>">
               View transactions </a>
         </td>
       </tr>
+      <% running_total += tag.total_spend()[1..-1].to_f() %>
       <% end %>
+      <% total_summed = add_currency_sign('%.2f' % running_total) %>
 
       <tr >
         <td class="no_border"></td>
         <td class="no_border"><b><%= @total_spend %></b></td>
+        <td class="no_border_percentage">
+          <b><%= percentage_of_total(total_summed, @total_spend) %></b>
+        </td>
       </tr>
     </table>
 

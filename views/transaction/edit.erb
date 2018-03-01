@@ -1,5 +1,12 @@
 <div class="contents">
 
+  <div class="above_form">
+    <p> Merchant not in the drop down box below? </p>
+      <a class="new_button" href="/bonzabudgeting/newmerchant"> Add a new merchant </a>
+      <p> Tag not in the drop down box below? </p>
+        <a class="new_button" href="/bonzabudgeting/newtag"> Add a new tag </a>
+  </div>
+
   <div class="new_form">
     <form action="/bonzabudgeting/<%= @transaction.id() %>" method="post">
 

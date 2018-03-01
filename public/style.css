@@ -43,6 +43,7 @@ table {
 
 th {
   border-bottom-style: solid;
+  width: 24vh;
 }
 
 td {
@@ -127,6 +128,15 @@ td {
   border-bottom-style: none;
 }
 
+.percentage {
+  font-style: italic;
+}
+
+.no_border_percentage {
+  font-style: italic;
+  border-bottom-style: none;
+}
+
 .new_form {
   position: relative;
   top: 5vh;
@@ -153,6 +163,7 @@ td {
   border-radius: 2vh;
   flex-wrap: wrap;
   justify-content: flex-start;
+  padding: 2vh 0vh;;
 }
 
 .above_form p {
@@ -160,6 +171,7 @@ td {
   margin-bottom: 2vh;
   /* border: solid; */
   width: 42vh;
+  color: white;
 }
 
 .form-el {

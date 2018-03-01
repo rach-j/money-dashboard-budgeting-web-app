@@ -21,22 +21,32 @@
       <tr>
         <th> Month </th>
         <th> Spend </th>
+        <th class="percentage"> Percentage of total spend </th>
       </tr>
 
+      <% running_total = 0 %>
       <% @months.each() do |month| %>
       <tr>
         <td><%= Date::MONTHNAMES[month] %></td>
         <td><%= Transaction.spending_by_month(month) %></td>
+        <td class="percentage">
+          <%= percentage_of_total(Transaction.spending_by_month(month), @total_spend) %>
+        </td>
         <td class="no_border">
             <a class="view_edit_button" href="/bonzabudgeting/spendbymonth/<%= month %>">
               View transactions </a>
         </td>
       </tr>
+      <% running_total += Transaction.spending_by_month(month)[1..-1].to_f() %>
       <% end %>
+      <% total_summed = add_currency_sign('%.2f' % running_total) %>
 
       <tr >
         <td class="no_border"></td>
         <td class="no_border"><b><%= @total_spend %></b></td>
+        <td class="no_border_percentage">
+          <b><%= percentage_of_total(total_summed, @total_spend) %></b>
+        </td>
       </tr>
     </table>
 
