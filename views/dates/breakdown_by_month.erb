@@ -6,7 +6,7 @@
   <div class="table_group">
 
     <div class="top_box">
-    <h2 class = "transaction_title"> Split by month </h2>
+    <h2 class = "transaction_title"> Split by merchant </h2>
       <div class="button_box">
       <a class="breakdown_button" href="/bonzabudgeting/spendbytag"> View spend breakdown by tag </a>
       <a class="breakdown_button" href="/bonzabudgeting/spendbymerchant"> View spend breakdown by merchant </a>
@@ -26,6 +26,7 @@
 
       <% running_total = 0 %>
       <% @months.each() do |month| %>
+
       <tr>
         <td><%= Date::MONTHNAMES[month] %></td>
         <td><%= Transaction.spending_by_month(month) %></td>
@@ -37,9 +38,11 @@
               View transactions </a>
         </td>
       </tr>
-      <% running_total += Transaction.spending_by_month(month)[1..-1].to_f() %>
+
+      <% running_total += convert_back_to_num(Transaction.spending_by_month(month)) %>
       <% end %>
-      <% total_summed = add_currency_sign('%.2f' % running_total) %>
+
+      <% total_summed = to_display(running_total) %>
 
       <tr >
         <td class="no_border"></td>

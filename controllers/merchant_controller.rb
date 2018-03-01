@@ -10,17 +10,17 @@ get '/bonzabudgeting/spendbymerchant/:id' do
   @merchant = Merchant.find(params['id'])
   @transactions_by_merchant = @merchant.transactions()
   @total_spend_by_merchant = @merchant.total_spend()
-  erb(:"merchant/spend_by_merchant")
+  erb(:"merchant/index")
 end
 
 get '/bonzabudgeting/spendbymerchant' do
   @merchants = Merchant.all()
   @total_spend = Transaction.total_spend()
-  erb(:"merchant/spend_breakdown_merchant")
+  erb(:"merchant/breakdown_by_merchant")
 end
 
 get '/bonzabudgeting/newmerchant' do
-  erb(:"merchant/add_new_merchant")
+  erb(:"merchant/new")
 end
 
 get '/bonzabudgeting/newmerchantexists' do

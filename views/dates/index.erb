@@ -1,12 +1,12 @@
 <div class="contents">
 
-  <h1> Total spend on <%= @tag.name() %>: </h1>
-  <h1 class="big_numbers"> <%= @total_spend_by_tag %> </h1>
+  <h1> Total spend in <%= @month %>: </h1>
+  <h1 class="big_numbers"> <%= @total_spend_in_month %> </h1>
 
   <div class="table_group">
 
     <div class="top_box">
-    <h2 class = "transaction_title"> Split by tag </h2>
+    <h2 class = "transaction_title"> Split by month </h2>
       <div class="button_box">
       <a class="breakdown_button" href="/bonzabudgeting/spendbytag"> View spend breakdown by tag </a>
       <a class="breakdown_button" href="/bonzabudgeting/spendbymerchant"> View spend breakdown by merchant </a>
@@ -21,21 +21,24 @@
       <tr>
         <th> Date </th>
         <th> Merchant </th>
+        <th> Tag </th>
         <th> Spend </th>
       </tr>
 
-      <% @transactions_by_tag.each() do |transaction| %>
+      <% @transactions_by_month.each() do |transaction| %>
       <tr>
-        <td><%= convert_to_UK_date(transaction.transaction_date()) %></td>
-        <td><%= transaction.merchant_name() %></td>
-        <td><%= transaction.amount_to_display() %></td>
+        <td> <%= convert_to_UK_date(transaction.transaction_date()) %> </td>
+        <td> <%= transaction.merchant_name() %></td>
+        <td> <%= transaction.tag_name() %></td>
+        <td><%= to_display(transaction.amount()) %></td>
       </tr>
       <% end %>
 
       <tr>
         <td class="no_border"></td>
         <td class="no_border"></td>
-        <td class="no_border"><b><%= @total_spend_by_tag %></b></td>
+        <td class="no_border"></td>
+        <td class="no_border"><b><%= @total_spend_in_month %></b></td>
       </tr>
     </table>
 

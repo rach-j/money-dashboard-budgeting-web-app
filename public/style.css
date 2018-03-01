@@ -137,7 +137,7 @@ td {
   border-bottom-style: none;
 }
 
-.new_form {
+.form_container {
   position: relative;
   top: 5vh;
   background-color: #9FB4C7;
@@ -170,7 +170,7 @@ td {
   margin-left: 6vh;
   margin-bottom: 2vh;
   /* border: solid; */
-  width: 42vh;
+  width: 40vh;
   color: white;
 }
 
@@ -179,7 +179,7 @@ td {
   font-size: 2.8vh;
 }
 
-.create_message {
+.info_message {
   width:100%;
   text-align: center;
   margin: 10vh auto;
@@ -303,7 +303,7 @@ a.link_new_transaction:hover {
     font-weight: bold;
 }
 
-a.link_new_merchant {
+a.link_new_merchant_or_tag {
   text-align: center;
   margin: 2vh 80vh;
   background-color: white;
@@ -313,7 +313,7 @@ a.link_new_merchant {
   display: block;
 }
 
-a.link_new_merchant:hover {
+a.link_new_merchant_or_tag:hover {
     font-weight: bold;
 }
 
@@ -326,4 +326,8 @@ a.new_button {
   margin-left: 1vh;
   text-align: center;
   display: inline-block;
+}
+
+a.new_button:hover {
+  font-weight: bold;
 }

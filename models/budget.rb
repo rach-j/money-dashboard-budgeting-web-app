@@ -28,11 +28,11 @@ class Budget
   def budget_compare(spend)
     budget = @value
     if spend > budget
-      amount_over = '%.2f' % (spend - budget)
-      return "You are #{add_currency_sign(amount_over)} over budget! Beans on toast for the rest of the week?"
+      amount_over = spend - budget
+      return "You are #{to_display(amount_over)} over budget! Beans on toast for the rest of the week?"
     else
-      amount_under = '%.2f' % (budget - spend)
-      return "Keep saving those pennies, you're #{add_currency_sign(amount_under)} under budget!"
+      amount_under = budget - spend
+      return "Keep saving those pennies, you're #{to_display(amount_under)} under budget!"
     end
   end
 
@@ -46,11 +46,6 @@ class Budget
     values = [@value, @id]
     SqlRunner.run(sql, values)
   end
-
-  def value_to_display
-    return add_currency_sign('%.2f' % @value)
-  end
-
 
   def Budget.delete_all()
     sql = "DELETE FROM budgets;"

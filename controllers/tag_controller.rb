@@ -10,17 +10,17 @@ get '/bonzabudgeting/spendbytag/:id' do
   @tag = Tag.find(params['id'])
   @transactions_by_tag = @tag.transactions()
   @total_spend_by_tag = @tag.total_spend()
-  erb(:"tag/spend_by_tag")
+  erb(:"tag/index")
 end
 
 get '/bonzabudgeting/spendbytag' do
   @tags = Tag.all()
   @total_spend = Transaction.total_spend()
-  erb(:"tag/spend_breakdown_tag")
+  erb(:"tag/breakdown_by_tag")
 end
 
 get '/bonzabudgeting/newtag' do
-  erb(:"tag/add_new_tag")
+  erb(:"tag/new")
 end
 
 get '/bonzabudgeting/newtagexists' do

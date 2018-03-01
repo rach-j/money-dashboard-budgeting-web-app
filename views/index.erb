@@ -61,7 +61,7 @@
         <td> <%= convert_to_UK_date(transaction.transaction_date()) %></td>
         <td><%= transaction.merchant_name() %></td>
         <td><%= transaction.tag_name() %></td>
-        <td><%= transaction.amount_to_display() %></td>
+        <td><%= to_display(transaction.amount()) %></td>
         <td class="no_border">
             <a class="view_edit_button" href="/bonzabudgeting/<%= transaction.id() %>/edit"> Edit </a>
         </td>

@@ -14,7 +14,7 @@ end
 
 post '/bonzabudgeting' do
   Transaction.new(params).save()
-  erb(:"transaction/create")
+  erb(:"transaction/new_transaction_message")
 end
 
 get '/bonzabudgeting/:id/edit' do
@@ -29,7 +29,7 @@ post '/bonzabudgeting/:id' do
   # date = Date.parse(transaction.transaction_date())
   # if Date.valid_date?(date.year(), date.month(), date.day())
     transaction.update()
-    erb(:"transaction/update")
+    erb(:"transaction/updated_transaction_message")
   # else
   #   erb(:"transaction/invalid_date")
   # end
