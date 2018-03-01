@@ -28,9 +28,8 @@
         <td><%= tag.name() %></td>
         <td><%= tag.total_spend() %></td>
         <td class="no_border">
-          <div class="button">
-            <a href="/bonzabudgeting/spendbytag/<%= tag.id() %>"> View transactions </a>
-          </div>
+            <a class= "view_edit_button" href="/bonzabudgeting/spendbytag/<%= tag.id() %>">
+              View transactions </a>
         </td>
       </tr>
       <% end %>

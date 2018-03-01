@@ -63,7 +63,7 @@
         <td><%= transaction.tag_name() %></td>
         <td><%= transaction.amount_to_display() %></td>
         <td class="no_border">
-            <a class="edit_button" href="/bonzabudgeting/<%= transaction.id() %>/edit"> Edit </a>
+            <a class="view_edit_button" href="/bonzabudgeting/<%= transaction.id() %>/edit"> Edit </a>
         </td>
         <td class="no_border">
           <form method="post" action="/bonzabudgeting/<%= transaction.id() %>/delete">

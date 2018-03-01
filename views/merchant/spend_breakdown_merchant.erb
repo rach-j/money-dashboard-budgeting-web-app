@@ -28,9 +28,8 @@
         <td><%= merchant.name() %></td>
         <td><%= merchant.total_spend() %></td>
         <td class="no_border">
-          <div class="button">
-            <a href="/bonzabudgeting/spendbymerchant/<%= merchant.id() %>"> View transactions </a>
-          </div>
+            <a class="view_edit_button" href="/bonzabudgeting/spendbymerchant/<%= merchant.id() %>">
+              View transactions </a>
         </td>
       </tr>
       <% end %>

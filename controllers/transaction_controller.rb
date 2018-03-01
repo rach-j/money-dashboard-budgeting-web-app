@@ -19,9 +19,9 @@ end
 
 get '/bonzabudgeting/:id/edit' do
   @transaction = Transaction.find(params['id'])
-    @merchants = Merchant.all()
-    @tags = Tag.all()
-    erb(:"transaction/edit")
+  @merchants = Merchant.all()
+  @tags = Tag.all()
+  erb(:"transaction/edit")
 end
 
 post '/bonzabudgeting/:id' do

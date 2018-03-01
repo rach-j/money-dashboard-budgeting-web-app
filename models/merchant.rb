@@ -66,4 +66,17 @@ class Merchant
     return result
   end
 
+  def Merchant.name_exists?(name)
+    sql = "SELECT * FROM merchants
+    WHERE name = $1"
+    values = [name]
+    merchant_data = SqlRunner.run(sql, values).first()
+    if merchant_data != nil
+      return true
+    else
+      return false
+    end
+    return result
+  end
+
 end

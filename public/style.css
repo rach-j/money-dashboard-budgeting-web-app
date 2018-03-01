@@ -141,6 +141,22 @@ td {
   border-radius: 2vh;
 }
 
+.above_form {
+  position: relative;
+  top: 2vh;
+  background-color: #9FB4C7;
+  margin: 0vh auto;
+  width: 70vh;
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  border-radius: 2vh;
+}
+
+.above_form p {
+  margin-left: 6vh;
+}
+
 .form-el {
   margin: 5vh;
   font-size: 2.8vh;
@@ -207,6 +223,8 @@ a.add_new_button {
 
 a.add_new_button:hover {
   font-weight: bold;
+  background-color: #7F7CAF;
+  color: white;
 }
 
 a.breakdown_button {
@@ -221,9 +239,11 @@ a.breakdown_button {
 
 a.breakdown_button:hover {
   font-weight: bold;
+  background-color: #7F7CAF;
+  color: white;
 }
 
-a.edit_button {
+a.view_edit_button {
   display: inline-block;
   border-radius: 0.5vh;
   background-color: white;
@@ -234,18 +254,60 @@ a.edit_button {
   margin-top: 0.5vh;
 }
 
-a.edit_button:hover {
+a.view_edit_button:hover {
   font-weight: bold;
 }
 
 a.link_to_home {
   text-align: center;
-  margin: 10vh 78vh;
+  margin: 0vh 76vh;
   background-color: white;
   border-radius: 2vh;
   padding: 2vh;
+  display: block;
 }
 
 a.link_to_home:hover {
     font-weight: bold;
+}
+
+a.link_new_transaction {
+  text-align: center;
+  margin: 2vh 80vh;
+  background-color: white;
+  border-radius: 2vh;
+  padding: 2vh;
+  text-align: center;
+  display: block;
+  /* width: 10vh; */
+}
+
+a.link_new_transaction:hover {
+    font-weight: bold;
+}
+
+a.link_new_merchant {
+  text-align: center;
+  margin: 2vh 80vh;
+  background-color: white;
+  border-radius: 2vh;
+  padding: 2vh;
+  text-align: center;
+  display: block;
+  /* width: 10vh; */
+}
+
+a.link_new_merchant:hover {
+    font-weight: bold;
+}
+
+a.new_button {
+  text-align: center;
+  font-size: 1.8vh;
+  background-color: white;
+  border-radius: 1vh;
+  padding: 0.2vh;
+  margin: 4vh;
+  text-align: center;
+  display: inline-block;
 }
