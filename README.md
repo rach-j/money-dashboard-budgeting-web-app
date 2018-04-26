@@ -19,7 +19,17 @@ Note that this web app has been designed to be viewed using Google Chrome and so
 ## Screenshots
 
 
-Homepage
+# Homepage
 ![Screenshot](https://github.com/rach-j/money-dashboard-budgeting-web-app/blob/master/screenshots_for_README/Screenshot-homepage-1.png)
 
 ![Screenshot](https://github.com/rach-j/money-dashboard-budgeting-web-app/blob/master/screenshots_for_README/Screenshot-homepage-2.png)
+
+# Add new transaction page
+![Screenshot](https://github.com/rach-j/money-dashboard-budgeting-web-app/blob/master/screenshots_for_README/Screenshot-add-new-transaction.png)
+
+# View spend breakdown by tag page
+![Screenshot](https://github.com/rach-j/money-dashboard-budgeting-web-app/blob/master/screenshots_for_README/Screenshot-view-breakdown-by-tag.png)
+
+# View all transactions for the 'Clothing' tag page
+![Screenshot](https://github.com/rach-j/money-dashboard-budgeting-web-app/blob/master/screenshots_for_README/Screenshot-view-all-transactions-for-particular-tag.png)
+<img src="https://github.com/rach-j/money-dashboard-budgeting-web-app/blob/master/screenshots_for_README/Screenshot-view-all-transactions-for-particular-tag.png" width="10">
