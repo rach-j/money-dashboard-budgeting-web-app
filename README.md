@@ -32,3 +32,23 @@ Note that this web app has been designed to be viewed using Google Chrome and so
 
 ### View all transactions for the 'Clothing' tag page
 ![Screenshot](https://github.com/rach-j/money-dashboard-budgeting-web-app/blob/master/screenshots_for_README/Screenshot-view-all-transactions-for-particular-tag.png)
+
+
+## To run
+
+### Prerequisites
+
+* Ruby
+* PostgreSQL
+
+These can be downloaded online. Installation depends on your operating system but there are plenty of resources online to explain how to do this.
+
+### To run
+
+* Install bundler: `$ gem install bundler`
+* Download this project (this can be done using the command `$git clone https://github.com/rach-j/money-dashboard-budgeting-web-app.git`)
+* * Install project gems: `$ bundler install`
+* Create a database: `$ createdb spending`
+* Set up tables in the database: `$ psql -d spending -f db/speending.sql`
+* Seed database with some data: `$ ruby db/seeds.rb`
+* Run app: `$ ruby app.rb`
