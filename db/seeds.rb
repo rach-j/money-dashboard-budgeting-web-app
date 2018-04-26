@@ -3,7 +3,7 @@ require_relative('../models/tag.rb')
 require_relative('../models/transaction.rb')
 require_relative('../models/budget.rb')
 require_relative('./sql_runner.rb')
-require('pry-byebug')
+# require('pry-byebug')
 
 Transaction.delete_all()
 Merchant.delete_all()
@@ -87,6 +87,6 @@ transaction6.save()
 budget = Budget.new({'value' => 100.00})
 budget.save()
 
-binding.pry
+# binding.pry
 
-NIL
+# NIL
