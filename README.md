@@ -17,3 +17,9 @@ App is written in Ruby and uses the web application framework Sinatra.
 Note that this web app has been designed to be viewed using Google Chrome and some items may display strangely in other browsers; however, viewing in other browser will not impact the functionality of the app.
 
 ## Screenshots
+
+
+Homepage
+![Screenshot](https://github.com/rach-j/money-dashboard-budgeting-web-app/blob/master/screenshots_for_README/Screenshot-homepage-1.png)
+
+![Screenshot](https://github.com/rach-j/money-dashboard-budgeting-web-app/blob/master/screenshots_for_README/Screenshot-homepage-2.png)
