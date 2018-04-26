@@ -11,3 +11,9 @@ User can:
 * View a breakdown of total spend in £  and % terms by month, merchant or tag
 * View all transactions for a particular month, merchant or tag
 * Set a budget (and see an alert message if total spend is over budget)
+
+App is written in Ruby and uses the web application framework Sinatra.
+
+Note that this web app has been designed to be viewed using Google Chrome and some items may display strangely in other browsers; however, viewing in other browser will not impact the functionality of the app.
+
+## Screenshots
