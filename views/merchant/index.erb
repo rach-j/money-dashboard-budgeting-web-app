@@ -26,8 +26,8 @@
 
       <% @transactions_by_merchant.each() do |transaction| %>
       <tr>
-        <td> <%= convert_to_UK_date(transaction.transaction_date()) %> </td>
-        <td> <%= transaction.tag_name() %></td>
+        <td><%= convert_to_UK_date(transaction.transaction_date()) %> </td>
+        <td><%= transaction.tag_name() %></td>
         <td><%= to_display(transaction.amount())%></td>
       </tr>
       <% end %>

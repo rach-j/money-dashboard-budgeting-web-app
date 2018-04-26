@@ -27,7 +27,7 @@ class Merchant
 
   def transactions()
     sql = "SELECT transactions.* FROM transactions
-    INNER JOIN transactions ON
+    INNER JOIN merchants ON
     transactions.merchant_id = merchants.id
     WHERE merchants.id = $1
     ORDER BY transaction_date DESC;"
