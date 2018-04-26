@@ -14,7 +14,7 @@ User can:
 
 App is written in Ruby and uses the web application framework Sinatra.
 
-Note that this web app has been designed to be viewed using Google Chrome and some items may display strangely in other browsers; however, viewing in other browser will not impact the functionality of the app.
+Note that this web app has been designed to be viewed using Google Chrome and some items may display strangely in other browsers.
 
 ## Screenshots
 
@@ -41,14 +41,14 @@ Note that this web app has been designed to be viewed using Google Chrome and so
 * Ruby
 * PostgreSQL
 
-These can be downloaded online. Installation depends on your operating system but there are plenty of resources online to explain how to do this.
+These can be downloaded online. Installation depends on your operating system but there are plenty of resources online that explain how to do this.
 
 ### To run
 
 * Install bundler: `$ gem install bundler`
 * Download this project (this can be done using the command `$git clone https://github.com/rach-j/money-dashboard-budgeting-web-app.git`)
-* * Install project gems: `$ bundler install`
+* Install project gems: `$ bundler install`
 * Create a database: `$ createdb spending`
-* Set up tables in the database: `$ psql -d spending -f db/speending.sql`
+* Set up tables in the database: `$ psql -d spending -f db/spending.sql`
 * Seed database with some data: `$ ruby db/seeds.rb`
 * Run app: `$ ruby app.rb`
