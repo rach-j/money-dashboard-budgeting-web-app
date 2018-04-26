@@ -19,6 +19,7 @@ Note that this web app has been designed to be viewed using Google Chrome and so
 ## Screenshots
 
 <h3>Homepage</h3>
+#
 ![Screenshot](https://github.com/rach-j/money-dashboard-budgeting-web-app/blob/master/screenshots_for_README/Screenshot-homepage-1.png)
 
 ![Screenshot](https://github.com/rach-j/money-dashboard-budgeting-web-app/blob/master/screenshots_for_README/Screenshot-homepage-2.png)
